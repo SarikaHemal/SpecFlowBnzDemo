@@ -39,9 +39,7 @@ namespace SpecFlowBnzDemo.StepDefinitions
             paymentPage.selectBillLink();
             paymentPage.enterAmountTextbox(amount);
             ClientPage clientPage=paymentPage.clickOnSubmitButton();
-            Thread.Sleep(2000);
-            clientPage.clickOnCloseButton();
-
+            
         }
 
         [Given(@"Transfer successful message is displayed")]
@@ -49,7 +47,10 @@ namespace SpecFlowBnzDemo.StepDefinitions
         {
             ClientPage clientPage = new ClientPage(driver);
             Assert.IsTrue(clientPage.messageDisplay());
+            Console.Write("Transfer successful");
+            Thread.Sleep(2000);
             clientPage.clickOnCloseButton();
+
 
         }
 
