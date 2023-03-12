@@ -31,6 +31,7 @@ namespace SpecFlowBnzDemo.Pages
 
         private IWebElement EverydayLink => driver.WaitForElement(By.ClassName("content-0-5-36"));
         private IWebElement BillLink => driver.WaitForClickable(By.XPath("//p[contains(text(),'Bills ')]"));
+
         private IWebElement SubmitButton => driver.WaitForElement(By.XPath
             ("//button[@type='submit'and@data-monitoring-label='Transfer Form Submit' ]"));
         private IWebElement searchAccount => driver.WaitForElement(By.XPath

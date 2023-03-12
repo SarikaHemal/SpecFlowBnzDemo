@@ -28,6 +28,9 @@ namespace SpecFlowBnzDemo.Pages
         private IWebElement CloseButton => driver.WaitForClickable(By.XPath("//span[@class='js-close-modal-button close-modal-button']"));
         //private IWebElement BillAccountBalance => driver.WaitForElement(By.XPath("//h3[@title='Bills ']"));
         private IWebElement BillAccountBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-5\"]/div[2]/span[3]"));
+
+        private IWebElement MesssageaTransferSuccess => driver.WaitForElement(By.XPath("//div[@class='u-screenReaderOnly js-screenreader-message-announcer']"));
+
         public void clickMenuList()
         {
             //MenuList SVG element
@@ -73,6 +76,11 @@ namespace SpecFlowBnzDemo.Pages
             return balance;
 
         }
+        public Boolean messageDisplay()
+        {
+            return MesssageaTransferSuccess.Displayed;
+        }
+
     }
 }
 

@@ -47,7 +47,10 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"Transfer successful message is displayed")]
         public void GivenTransferSuccessfulMessageIsDisplayed()
         {
-            
+            ClientPage clientPage = new ClientPage(driver);
+            Assert.IsTrue(clientPage.messageDisplay());
+            clientPage.clickOnCloseButton();
+
         }
 
         [Then(@"Verify the current balance of Everyday account and Bills account are correct")]
