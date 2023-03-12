@@ -25,7 +25,7 @@ namespace SpecFlowBnzDemo.Pages
         private IWebElement EverydayAccountLink => driver.WaitForElement(By.XPath("//h3[@title='Everyday']"));
         private IWebElement EverydayBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-1\"]/div[2]/span[3]"));
         private IWebElement PayButton => driver.WaitForElement(By.XPath("//button[@class='Button Button--link js-pay AccountHeader-payButton']"));
-        private IWebElement CloseButton => driver.WaitForClickable(By.XPath("//span[@class='js-close-modal-button close-modal-button']"));
+        private IWebElement CloseButton => driver.WaitForElement(By.XPath("//span[@class='js-close-modal-button close-modal-button']"));
         //private IWebElement BillAccountBalance => driver.WaitForElement(By.XPath("//h3[@title='Bills ']"));
         private IWebElement BillAccountBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-5\"]/div[2]/span[3]"));
 

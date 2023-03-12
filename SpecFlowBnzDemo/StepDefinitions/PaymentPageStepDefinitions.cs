@@ -21,10 +21,6 @@ namespace SpecFlowBnzDemo.StepDefinitions
             clientPage.clickOnEvedayAccountLink();
             decimal beforeEverydayBalance = clientPage.getEverydayBalance();
             Console.WriteLine("Before Everyday balance:  "+beforeEverydayBalance);
-            //clientPage.clickOnCloseButton();
-            //clientPage.clickOnBillAccountLink();
-            //decimal beforeBillBalance=clientPage.getBillAccountBalance();
-            //Console.WriteLine("Before Bills balance:  " + beforeBillBalance);
             PaymentPage paymentPage= clientPage.clickOnPayButton();
                         
         }
