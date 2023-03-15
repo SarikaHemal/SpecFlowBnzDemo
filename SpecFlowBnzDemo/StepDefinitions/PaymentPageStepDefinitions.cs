@@ -23,32 +23,32 @@ namespace SpecFlowBnzDemo.StepDefinitions
         public void GivenINavigateToPaymentsPage()
         {
             
-            clientPage.clickOnEvedayAccountLink();
-            decimal beforeEverydayBalance = clientPage.getEverydayBalance();
+            clientPage.ClickOnEvedayAccountLink();
+            decimal beforeEverydayBalance = clientPage.GetEverydayBalance();
             Console.WriteLine("Before Everyday balance:  "+beforeEverydayBalance);
-            paymentPage= clientPage.clickOnPayButton();
+            paymentPage= clientPage.ClickOnPayButton();
                         
         }
 
         [Given(@"Transfer \$(.*) from Everyday account to Bills account")]
         public void GivenTransferFromEverydayAccountToBillsAccount(string amount)
         {
-            paymentPage.clickOnToLink();
-            paymentPage.selectAmountTabFromToAccount();
-            paymentPage.searchForAccount("Bills");
-            paymentPage.selectBillLink();
-            paymentPage.enterAmountTextbox(amount);
-            clientPage=paymentPage.clickOnSubmitButton();
+            paymentPage.ClickOnToLink();
+            paymentPage.SelectAmountTabFromToAccount();
+            paymentPage.SearchForAccount("Bills");
+            paymentPage.SelectBillLink();
+            paymentPage.EnterAmountTextbox(amount);
+            clientPage=paymentPage.ClickOnSubmitButton();
             
         }
 
         [Given(@"Transfer successful message is displayed")]
         public void GivenTransferSuccessfulMessageIsDisplayed()
         {
-            Assert.IsTrue(clientPage.messageDisplay());
+            Assert.IsTrue(clientPage.MessageDisplay());
             Console.Write("Transfer successful");
-            Thread.Sleep(2000);
-            clientPage.clickOnCloseButton();
+            Thread.Sleep(3000);
+            clientPage.ClickOnCloseButton();
 
 
         }
@@ -56,11 +56,11 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Then(@"Verify the current balance of Everyday account and Bills account are correct")]
         public void ThenVerifyTheCurrentBalanceOfEverydayAccountAndBillsAccountAreCorrect()
         {
-            decimal AfterEverydayBalance = clientPage.getEverydayBalance();
+            decimal AfterEverydayBalance = clientPage.GetEverydayBalance();
             Console.WriteLine("After Transfer Everyday Balance:   " + AfterEverydayBalance);
             Assert.AreEqual(AfterEverydayBalance,2000.00);
             
-            Decimal AfterBillBalance=clientPage.getBillAccountBalance();
+            Decimal AfterBillBalance=clientPage.GetBillAccountBalance();
             Assert.AreEqual(AfterBillBalance,920.00);
             Console.WriteLine("After Transfer Bill account:   "+ AfterBillBalance);
         }

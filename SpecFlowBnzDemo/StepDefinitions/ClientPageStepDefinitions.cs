@@ -26,7 +26,7 @@ namespace SpecFlowBnzDemo.StepDefinitions
         public void GivenISelectPayeesTabFromMenu()
         {
             clientPage = new ClientPage(driver);
-            payeesPage = clientPage.selectPayeesFromMenu();
+            payeesPage = clientPage.SelectPayeesFromMenu();
 
         }
 

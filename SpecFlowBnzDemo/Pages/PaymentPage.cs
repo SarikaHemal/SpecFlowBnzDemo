@@ -37,38 +37,38 @@ namespace SpecFlowBnzDemo.Pages
         private IWebElement searchAccount => driver.WaitForElement(By.XPath
             ("//input[@placeholder='Search']"));
 
-        public void clickOnFromLink()
+        public void ClickOnFromLink()
         {
             FromLink.Click();
         }
-        public void clickOnToLink()
+        public void ClickOnToLink()
         {
             ToLink.Click();
         }
-        public void selectAmountTabFromToAccount()
+        public void SelectAmountTabFromToAccount()
         {
             driver.WaitForDisplayed(By.XPath("//li[@data-testid='to-account-accounts-tab']")).Click();
         }
-        public void selectEverydayLink()
+        public void SelectEverydayLink()
         {
         //    SelectElement accountlist= new SelectElement(BillLink);
         //    accountlist.SelectByText("Bills");
         //    EverydayLink.Click();
         }
-        public void selectBillLink()
+        public void SelectBillLink()
         {
             BillLink.Click();
         }
-        public void enterAmountTextbox(string amount)
+        public void EnterAmountTextbox(string amount)
         {
             AmountTextbox.EnterText(amount);
         }
-        public ClientPage clickOnSubmitButton( )
+        public ClientPage ClickOnSubmitButton( )
         { 
             SubmitButton.Click();
             return new ClientPage(driver);
         }
-        public void searchForAccount(string account)
+        public void SearchForAccount(string account)
         {
             searchAccount.EnterText(account);
             searchAccount.SendKeys(Keys.Enter);

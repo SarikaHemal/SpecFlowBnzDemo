@@ -33,14 +33,14 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"I click on Add button")]
         public void GivenIClickOnAddButton()
         {
-            payeesPage.clickAddButton();
+            payeesPage.ClickAddButton();
         }
 
         [Given(@"I enter payee details")]
         public void GivenIEnterPayeeDetails(Table table)
         {
             dynamic data = table.CreateDynamicInstance();
-            payeesPage.enterPayeeDetails(data.Name,Convert.ToString(data.BankNo),Convert.
+            payeesPage.EnterPayeeDetails(data.Name,Convert.ToString(data.BankNo),Convert.
             ToString(data.BranchNo),Convert.ToString(data.AccountNo),Convert.ToString(data.SuffixNo));
          
         }
@@ -63,9 +63,9 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"I get Validate errors message")]
         public void GivenIGetValidateErrorsMessage()
         {
-            string msg = payeesPage.validatePayeeNameRequireMessage();                  
+            string msg = payeesPage.ValidatePayeeNameRequireMessage();                  
             Assert.AreEqual("Payee Name is a required field. Please complete to continue.",msg);
-            string errorMsg = payeesPage.validateMandatoryField();
+            string errorMsg = payeesPage.ValidateMandatoryField();
             Assert.AreEqual("A problem was found. Please correct the field highlighted below.", errorMsg);
             
         }
@@ -81,7 +81,7 @@ namespace SpecFlowBnzDemo.StepDefinitions
         public void GivenIClickNameHeader()
         {
             PayeesPage payeesPage = new PayeesPage(driver);
-            payeesPage.clickNameButton();
+            payeesPage.ClickNameButton();
            
         }
 

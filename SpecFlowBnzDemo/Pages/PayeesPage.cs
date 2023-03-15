@@ -31,11 +31,11 @@ namespace SpecFlowBnzDemo.Pages
 
         private IWebElement ErrorMessage => driver.WaitForElement(By.XPath("//div[@class='error-header']"));
         private IWebElement NameSortButton => driver.WaitForElement(By.XPath("//h3[@role='button' and @aria-label='Sort by payee name A to Z selected. Select again to reverse order.']"));
-        public void clickAddButton()
+        public void ClickAddButton()
         {
             AddButton.Click();
         }
-        public void enterPayeeDetails(string Name, string BankNo, string BranchNo, string AccountNo, string SuffixNo)
+        public void EnterPayeeDetails(string Name, string BankNo, string BranchNo, string AccountNo, string SuffixNo)
         {
             //PayeeNameTextbox.WaitForTextLoaded(driver);
 
@@ -48,20 +48,20 @@ namespace SpecFlowBnzDemo.Pages
             SuffixNumber.SendKeys(Keys.Enter);
             AddButtonfromBankDetails.Click();
         }
-        public string validatePayeeNameRequireMessage()
+        public string ValidatePayeeNameRequireMessage()
         {
             AddButtonfromBankDetails.Click();
             string s1 = PayeeRequireMessage.Text;
             Console.WriteLine(s1);
             return s1;
         }
-        public string validateMandatoryField()
+        public string ValidateMandatoryField()
         {
             string s1 = ErrorMessage.Text;
             Console.WriteLine(s1);
             return s1;
         }
-        public void clickNameButton()
+        public void ClickNameButton()
         {
             NameSortButton.Click();
 

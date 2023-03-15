@@ -31,7 +31,7 @@ namespace SpecFlowBnzDemo.Pages
 
         private IWebElement MesssageaTransferSuccess => driver.WaitForElement(By.XPath("//div[@class='u-screenReaderOnly js-screenreader-message-announcer']"));
 
-        public void clickMenuList()
+        public void ClickMenuList()
         {
             //MenuList SVG element
             IWebElement svgObject = driver.WaitForElement(By.XPath("//*[local-name()='svg' and @viewBox='0 0 30 30' and @class='Icons Icons--hamburguerMenu']"));
@@ -40,43 +40,43 @@ namespace SpecFlowBnzDemo.Pages
             Thread.Sleep(1000);
 
         }
-        public PayeesPage selectPayeesFromMenu()
+        public PayeesPage SelectPayeesFromMenu()
         {
 
-            clickMenuList();
+            ClickMenuList();
             PayeesTab.Click();
             return new PayeesPage(driver);
         }
-        public void clickOnEvedayAccountLink()
+        public void ClickOnEvedayAccountLink()
         {
             EverydayAccountLink.Click();
         }
-        public decimal getEverydayBalance()
+        public decimal GetEverydayBalance()
         {
             decimal balance = Convert.ToDecimal(EverydayBalance.Text);
             return balance;
         }
-        public PaymentPage clickOnPayButton()
+        public PaymentPage ClickOnPayButton()
         {
             PayButton.Click();
             return new PaymentPage(driver);
         }
-        public void clickOnCloseButton()
+        public void ClickOnCloseButton()
         {
             CloseButton.Click();
         }
-        public void clickOnBillAccountLink()
+        public void ClickOnBillAccountLink()
         {
             BillAccountBalance.Click();
         }
 
-        public Decimal getBillAccountBalance()
+        public Decimal GetBillAccountBalance()
         {
             Decimal balance =Convert.ToDecimal(BillAccountBalance.Text);
             return balance;
 
         }
-        public Boolean messageDisplay()
+        public Boolean MessageDisplay()
         {
             return MesssageaTransferSuccess.Displayed;
         }
