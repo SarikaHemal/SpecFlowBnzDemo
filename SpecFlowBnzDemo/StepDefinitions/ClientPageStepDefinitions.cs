@@ -11,9 +11,13 @@ namespace SpecFlowBnzDemo.StepDefinitions
     public class ClientPageStepDefinitions
     {
         private IWebDriver driver;
+        ClientPage clientPage;
+        PayeesPage payeesPage;
         public ClientPageStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
+            clientPage=new ClientPage(driver);
+            payeesPage = new PayeesPage(driver);
         }
 
         
@@ -21,8 +25,8 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"I Select Payees tab from Menu")]
         public void GivenISelectPayeesTabFromMenu()
         {
-            ClientPage clientPage = new ClientPage(driver);
-            PayeesPage payeesPage = clientPage.selectPayeesFromMenu();
+            clientPage = new ClientPage(driver);
+            payeesPage = clientPage.selectPayeesFromMenu();
 
         }
 

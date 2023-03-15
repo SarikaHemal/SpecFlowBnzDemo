@@ -16,9 +16,13 @@ namespace SpecFlowBnzDemo.StepDefinitions
     public class PayeesPageStepDefinitions: Steps
     {
         private IWebDriver driver;
+        ClientPage clientPage;
+        PayeesPage payeesPage;
         public PayeesPageStepDefinitions(IWebDriver driver)
         {
              this.driver = driver;
+             clientPage=new ClientPage(driver);
+             payeesPage = new PayeesPage(driver);
         }
         [Given(@"I am in Payees Page")]
         public void GivenIAmInPayeesPage()
@@ -29,17 +33,15 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"I click on Add button")]
         public void GivenIClickOnAddButton()
         {
-            PayeesPage payeesPage = new PayeesPage(driver);
             payeesPage.clickAddButton();
         }
 
         [Given(@"I enter payee details")]
         public void GivenIEnterPayeeDetails(Table table)
         {
-            PayeesPage payeesPage = new PayeesPage(driver);
             dynamic data = table.CreateDynamicInstance();
             payeesPage.enterPayeeDetails(data.Name,Convert.ToString(data.BankNo),Convert.
-                ToString(data.BranchNo),Convert.ToString(data.AccountNo),Convert.ToString(data.SuffixNo));
+            ToString(data.BranchNo),Convert.ToString(data.AccountNo),Convert.ToString(data.SuffixNo));
          
         }
                 
@@ -61,7 +63,6 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"I get Validate errors message")]
         public void GivenIGetValidateErrorsMessage()
         {
-            PayeesPage payeesPage= new PayeesPage(driver);
             string msg = payeesPage.validatePayeeNameRequireMessage();                  
             Assert.AreEqual("Payee Name is a required field. Please complete to continue.",msg);
             string errorMsg = payeesPage.validateMandatoryField();
@@ -72,7 +73,6 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Given(@"Verify list sorted accending order by default")]
         public void GivenVerifyListSortedAccendingOrderByDefault()
         {
-            PayeesPage payeesPage = new PayeesPage(driver);
             String s1=payeesPage.VarifyListSorted();
             Assert.AreEqual(s1, "Sorting Success");
         }
@@ -81,7 +81,6 @@ namespace SpecFlowBnzDemo.StepDefinitions
         public void GivenIClickNameHeader()
         {
             PayeesPage payeesPage = new PayeesPage(driver);
-            //Thread.Sleep(2000);
             payeesPage.clickNameButton();
            
         }

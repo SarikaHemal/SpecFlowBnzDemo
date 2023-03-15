@@ -10,38 +10,41 @@ namespace SpecFlowBnzDemo.StepDefinitions
     public class PaymentPageStepDefinitions : Steps
     {
         private IWebDriver driver;
+        ClientPage clientPage;
+        PaymentPage paymentPage;
+        //PayeesPage payeesPage = default!;
         public PaymentPageStepDefinitions(IWebDriver driver)
         {
             this.driver = driver;
+            clientPage = new ClientPage(driver);
+            paymentPage = new PaymentPage(driver);
         }
         [Given(@"I Navigate to Payments page")]
         public void GivenINavigateToPaymentsPage()
         {
-            ClientPage clientPage = new ClientPage(driver);
+            
             clientPage.clickOnEvedayAccountLink();
             decimal beforeEverydayBalance = clientPage.getEverydayBalance();
             Console.WriteLine("Before Everyday balance:  "+beforeEverydayBalance);
-            PaymentPage paymentPage= clientPage.clickOnPayButton();
+            paymentPage= clientPage.clickOnPayButton();
                         
         }
 
         [Given(@"Transfer \$(.*) from Everyday account to Bills account")]
         public void GivenTransferFromEverydayAccountToBillsAccount(string amount)
         {
-            PaymentPage paymentPage = new PaymentPage(driver);
             paymentPage.clickOnToLink();
             paymentPage.selectAmountTabFromToAccount();
             paymentPage.searchForAccount("Bills");
             paymentPage.selectBillLink();
             paymentPage.enterAmountTextbox(amount);
-            ClientPage clientPage=paymentPage.clickOnSubmitButton();
+            clientPage=paymentPage.clickOnSubmitButton();
             
         }
 
         [Given(@"Transfer successful message is displayed")]
         public void GivenTransferSuccessfulMessageIsDisplayed()
         {
-            ClientPage clientPage = new ClientPage(driver);
             Assert.IsTrue(clientPage.messageDisplay());
             Console.Write("Transfer successful");
             Thread.Sleep(2000);
@@ -53,7 +56,6 @@ namespace SpecFlowBnzDemo.StepDefinitions
         [Then(@"Verify the current balance of Everyday account and Bills account are correct")]
         public void ThenVerifyTheCurrentBalanceOfEverydayAccountAndBillsAccountAreCorrect()
         {
-            ClientPage clientPage = new ClientPage(driver);
             decimal AfterEverydayBalance = clientPage.getEverydayBalance();
             Console.WriteLine("After Transfer Everyday Balance:   " + AfterEverydayBalance);
             Assert.AreEqual(AfterEverydayBalance,2000.00);
