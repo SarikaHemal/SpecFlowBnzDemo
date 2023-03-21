@@ -20,16 +20,16 @@ namespace SpecFlowBnzDemo.Pages
         }
 
         //Payees Tab
-        private IWebElement PayeesTab => driver.WaitForElement(By.XPath("//*[@id=\"left\"]/div[1]/div/div[3]/section/div[2]/nav[1]/ul/li[3]/a/span"));
+        private IWebElement payeesTab => driver.WaitForElement(By.XPath("//*[@id=\"left\"]/div[1]/div/div[3]/section/div[2]/nav[1]/ul/li[3]/a/span"));
 
-        private IWebElement EverydayAccountLink => driver.WaitForElement(By.XPath("//h3[@title='Everyday']"));
-        private IWebElement EverydayBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-1\"]/div[2]/span[3]"));
-        private IWebElement PayButton => driver.WaitForElement(By.XPath("//button[@class='Button Button--link js-pay AccountHeader-payButton']"));
-        private IWebElement CloseButton => driver.WaitForElement(By.XPath("//span[@class='js-close-modal-button close-modal-button']"));
+        private IWebElement everydayAccountLink => driver.WaitForElement(By.XPath("//h3[@title='Everyday']"));
+        private IWebElement everydayBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-1\"]/div[2]/span[3]"));
+        private IWebElement payButton => driver.WaitForElement(By.XPath("//button[@class='Button Button--link js-pay AccountHeader-payButton']"));
+        private IWebElement closeButton => driver.WaitForElement(By.XPath("//span[@class='js-close-modal-button close-modal-button']"));
         //private IWebElement BillAccountBalance => driver.WaitForElement(By.XPath("//h3[@title='Bills ']"));
-        private IWebElement BillAccountBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-5\"]/div[2]/span[3]"));
+        private IWebElement billAccountBalance => driver.WaitForElement(By.XPath("//*[@id=\"account-ACC-5\"]/div[2]/span[3]"));
 
-        private IWebElement MesssageaTransferSuccess => driver.WaitForElement(By.XPath("//div[@class='u-screenReaderOnly js-screenreader-message-announcer']"));
+        private IWebElement messsageaTransferSuccess => driver.WaitForElement(By.XPath("//div[@class='u-screenReaderOnly js-screenreader-message-announcer']"));
 
         public void ClickMenuList()
         {
@@ -44,41 +44,41 @@ namespace SpecFlowBnzDemo.Pages
         {
 
             ClickMenuList();
-            PayeesTab.Click();
+            payeesTab.Click();
             return new PayeesPage(driver);
         }
         public void ClickOnEvedayAccountLink()
         {
-            EverydayAccountLink.Click();
+            everydayAccountLink.Click();
         }
         public decimal GetEverydayBalance()
         {
-            decimal balance = Convert.ToDecimal(EverydayBalance.Text);
+            decimal balance = Convert.ToDecimal(everydayBalance.Text);
             return balance;
         }
         public PaymentPage ClickOnPayButton()
         {
-            PayButton.Click();
+            payButton.Click();
             return new PaymentPage(driver);
         }
         public void ClickOnCloseButton()
         {
-            CloseButton.Click();
+            closeButton.Click();
         }
         public void ClickOnBillAccountLink()
         {
-            BillAccountBalance.Click();
+            billAccountBalance.Click();
         }
 
         public Decimal GetBillAccountBalance()
         {
-            Decimal balance =Convert.ToDecimal(BillAccountBalance.Text);
+            Decimal balance =Convert.ToDecimal(billAccountBalance.Text);
             return balance;
 
         }
         public Boolean MessageDisplay()
         {
-            return MesssageaTransferSuccess.Displayed;
+            return messsageaTransferSuccess.Displayed;
         }
 
     }

@@ -20,50 +20,50 @@ namespace SpecFlowBnzDemo.Pages
             this.driver = driver;
         }
         //add buutton
-        private IWebElement AddButton => driver.WaitForElement(By.XPath("//button[@type='button' and @class='Button Button--sub Button--translucid js-add-payee']"));
-        private IWebElement PayeeNameTextbox => driver.WaitForElement(By.XPath("//input[@name='apm-name']"));
-        private IWebElement BankNumber => driver.WaitForElement(By.XPath("//input[@name='apm-bank']"));
-        private IWebElement BranchNumber => driver.WaitForElement(By.XPath("//input[@name='apm-branch']"));
-        private IWebElement AccountNumber => driver.WaitForElement(By.XPath("//input[@name='apm-account']"));
-        private IWebElement SuffixNumber => driver.WaitForElement(By.XPath("//input[@name='apm-suffix']"));
-        private IWebElement AddButtonfromBankDetails => driver.WaitForElement(By.XPath("//button[@class='js-submit Button Button--primary']"));
-        private IWebElement PayeeRequireMessage => driver.WaitForElement(By.XPath("//p[@class='text js-tooltip-text']"));
+        private IWebElement addButton => driver.WaitForElement(By.XPath("//button[@type='button' and @class='Button Button--sub Button--translucid js-add-payee']"));
+        private IWebElement payeeNameTextbox => driver.WaitForElement(By.XPath("//input[@name='apm-name']"));
+        private IWebElement bankNumber => driver.WaitForElement(By.XPath("//input[@name='apm-bank']"));
+        private IWebElement branchNumber => driver.WaitForElement(By.XPath("//input[@name='apm-branch']"));
+        private IWebElement accountNumber => driver.WaitForElement(By.XPath("//input[@name='apm-account']"));
+        private IWebElement suffixNumber => driver.WaitForElement(By.XPath("//input[@name='apm-suffix']"));
+        private IWebElement addButtonfromBankDetails => driver.WaitForElement(By.XPath("//button[@class='js-submit Button Button--primary']"));
+        private IWebElement payeeRequireMessage => driver.WaitForElement(By.XPath("//p[@class='text js-tooltip-text']"));
 
-        private IWebElement ErrorMessage => driver.WaitForElement(By.XPath("//div[@class='error-header']"));
-        private IWebElement NameSortButton => driver.WaitForElement(By.XPath("//h3[@role='button' and @aria-label='Sort by payee name A to Z selected. Select again to reverse order.']"));
+        private IWebElement errorMessage => driver.WaitForElement(By.XPath("//div[@class='error-header']"));
+        private IWebElement nameSortButton => driver.WaitForElement(By.XPath("//h3[@role='button' and @aria-label='Sort by payee name A to Z selected. Select again to reverse order.']"));
         public void ClickAddButton()
         {
-            AddButton.Click();
+            addButton.Click();
         }
         public void EnterPayeeDetails(string Name, string BankNo, string BranchNo, string AccountNo, string SuffixNo)
         {
             //PayeeNameTextbox.WaitForTextLoaded(driver);
 
-            PayeeNameTextbox.EnterText(Name);
-            PayeeNameTextbox.SendKeys(Keys.Enter);
-            BankNumber.EnterText(BankNo);
-            BranchNumber.EnterText(BranchNo);
-            AccountNumber.EnterText(AccountNo);
-            SuffixNumber.EnterText(SuffixNo);
-            SuffixNumber.SendKeys(Keys.Enter);
-            AddButtonfromBankDetails.Click();
+            payeeNameTextbox.EnterText(Name);
+            payeeNameTextbox.SendKeys(Keys.Enter);
+            bankNumber.EnterText(BankNo);
+            branchNumber.EnterText(BranchNo);
+            accountNumber.EnterText(AccountNo);
+            suffixNumber.EnterText(SuffixNo);
+            suffixNumber.SendKeys(Keys.Enter);
+            addButtonfromBankDetails.Click();
         }
         public string ValidatePayeeNameRequireMessage()
         {
-            AddButtonfromBankDetails.Click();
-            string s1 = PayeeRequireMessage.Text;
+            addButtonfromBankDetails.Click();
+            string s1 = payeeRequireMessage.Text;
             Console.WriteLine(s1);
             return s1;
         }
         public string ValidateMandatoryField()
         {
-            string s1 = ErrorMessage.Text;
+            string s1 = errorMessage.Text;
             Console.WriteLine(s1);
             return s1;
         }
         public void ClickNameButton()
         {
-            NameSortButton.Click();
+            nameSortButton.Click();
 
         }
         public string VarifyListSorted()

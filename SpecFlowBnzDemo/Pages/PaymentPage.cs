@@ -21,29 +21,29 @@ namespace SpecFlowBnzDemo.Pages
         }
 
         //Payees Tab
-        private IWebElement PayeesTab => driver.WaitForElement(By.XPath("//*[@id=\"left\"]/div[1]/div/div[3]/section/div[2]/nav[1]/ul/li[3]/a/span"));
+        private IWebElement payeesTab => driver.WaitForElement(By.XPath("//*[@id=\"left\"]/div[1]/div/div[3]/section/div[2]/nav[1]/ul/li[3]/a/span"));
 
         //To account link
-        private IWebElement ToLink => driver.WaitForElement(By.ClassName("name-0-5-45"));
-        private IWebElement FromLink => driver.WaitForElement(By.ClassName("button-0-5-31"));
-        private IWebElement AmountTabFromToAccount => driver.WaitForElement(By.XPath("//li[@data-testid='to-account-accounts-tab']"));
-        private IWebElement AmountTextbox => driver.WaitForElement(By.Name("amount"));
+        private IWebElement toLink => driver.WaitForElement(By.ClassName("name-0-5-45"));
+        private IWebElement fromLink => driver.WaitForElement(By.ClassName("button-0-5-31"));
+        private IWebElement amountTabFromToAccount => driver.WaitForElement(By.XPath("//li[@data-testid='to-account-accounts-tab']"));
+        private IWebElement amountTextbox => driver.WaitForElement(By.Name("amount"));
 
-        private IWebElement EverydayLink => driver.WaitForElement(By.ClassName("content-0-5-36"));
-        private IWebElement BillLink => driver.WaitForClickable(By.XPath("//p[contains(text(),'Bills ')]"));
+        private IWebElement everydayLink => driver.WaitForElement(By.ClassName("content-0-5-36"));
+        private IWebElement billLink => driver.WaitForClickable(By.XPath("//p[contains(text(),'Bills ')]"));
 
-        private IWebElement SubmitButton => driver.WaitForElement(By.XPath
+        private IWebElement submitButton => driver.WaitForElement(By.XPath
             ("//button[@type='submit'and@data-monitoring-label='Transfer Form Submit' ]"));
         private IWebElement searchAccount => driver.WaitForElement(By.XPath
             ("//input[@placeholder='Search']"));
 
         public void ClickOnFromLink()
         {
-            FromLink.Click();
+            fromLink.Click();
         }
         public void ClickOnToLink()
         {
-            ToLink.Click();
+            toLink.Click();
         }
         public void SelectAmountTabFromToAccount()
         {
@@ -57,15 +57,15 @@ namespace SpecFlowBnzDemo.Pages
         }
         public void SelectBillLink()
         {
-            BillLink.Click();
+            billLink.Click();
         }
         public void EnterAmountTextbox(string amount)
         {
-            AmountTextbox.EnterText(amount);
+            amountTextbox.EnterText(amount);
         }
         public ClientPage ClickOnSubmitButton( )
         { 
-            SubmitButton.Click();
+            submitButton.Click();
             return new ClientPage(driver);
         }
         public void SearchForAccount(string account)
